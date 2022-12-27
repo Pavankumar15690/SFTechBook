@@ -1,0 +1,16 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:dependency resource="markup://force:navigateToComponent" type="EVENT"/>
+    <aura:attribute name="idArt" type="String" />
+    <aura:attribute name="article" type="Article__c" default="{'sobjectType': 'Article__c'}"/>
+    <!-- The id is {!v.idArt} -->
+    
+    <div class="details">
+        <h1>{!v.article.Name}</h1>
+        <div id="btnRetour">
+            <button onclick="{!c.addToCart}" class="btnPanier">Add</button>
+        </div>
+    </div>
+</aura:component>
