@@ -3,7 +3,9 @@ public with sharing class Contacts {
     public static List<Contact> showContacts()
     { 
         //Add comments in repo
+        //create list in contact
         List<Contact> contactList = new List<Contact>();
+        //In contactList I'm fetching six records
         contactList = [SELECT Id, Name, Phone, Image_URL__c, Quantity__c FROM Contact limit 6];
         return contactList;  
     }
