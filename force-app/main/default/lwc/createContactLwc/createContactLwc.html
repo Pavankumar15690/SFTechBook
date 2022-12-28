@@ -1,0 +1,7 @@
+<template>
+    <lightning-card label="Contacts from Lwc" icon-name="standard-contact">
+        <lightning-input label="Last Name" value={lastName} oncommit={handlelNameChange}></lightning-input>
+        <lightning-input label="Email" value={email} oncommit={handleEmailChange}></lightning-input>
+        <lightning-button label="Create Contact" onclick={handleInsertContact}></lightning-button>
+    </lightning-card>
+</template>

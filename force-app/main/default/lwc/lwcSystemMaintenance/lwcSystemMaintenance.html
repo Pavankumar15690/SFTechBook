@@ -1,0 +1,30 @@
+<!--
+<template>
+    <lightning-card title={label.SystemMaintenance} variant="narrow" icon-name="standard:opportunity">
+        <lightning-record-view-form record-id={recordId} object-api-name="Alert__c" density="comfy">
+            <div class="slds-scrollable_y" style="height:18rem;width:26rem">
+                <div class="slds-box slds-theme_default">
+                    <div class="slds-grid slds-grid_vertical">
+                        <lightning-output-field field-name="Title__c"></lightning-output-field><hr>
+                        <lightning-output-field field-name="Body__c"></lightning-output-field>
+                    </div>
+                </div>
+            </div>
+        </lightning-record-view-form>
+    </lightning-card>
+</template>
+-->
+<template>
+    <lightning-card title={label.SystemMaintenance} variant="narrow" icon-name="standard:opportunity">
+        <div class="slds-box slds-theme_default">
+            <div class="container">
+                <template for:each={getRecord.data} for:item="Item">
+                    <ul key={Item.Id}>
+                        {Item.Title__c}<br/>
+                        {Item.Body__c}<hr>
+                    </ul>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>

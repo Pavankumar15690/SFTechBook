@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title = "Raagvi Tech" icon-name = "standard-account">
+       My Name is {name}<br></br>
+       My Role is {role}
+      <lightning-input label = "Employee Name" value={name} onchange={displayName}></lightning-input>
+      <lightning-input label = "Employee Role" value={role} onchange={displayRole}></lightning-input>
+      <lightning-button label="Submit" onclick={handleClick}></lightning-button>
+    </lightning-card>
+</template>

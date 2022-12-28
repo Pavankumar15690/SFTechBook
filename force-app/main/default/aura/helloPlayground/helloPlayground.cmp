@@ -1,0 +1,30 @@
+<aura:component controller="LibraryController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="images" type="List"/>
+    <aura:attribute name="selTabId" type="String"/>
+    <div class="slds-box slds-box_xx-small slds-text-align_center" style="background-color: white; height : auto; width : 50%;">
+        <h1><b>Nature</b></h1>
+        <lightning:carousel disableAutoScroll="false">
+            <aura:iteration items="{!v.images}" var="img" indexvar="index">   
+                <lightning:carouselImage src="{!'/sfc/servlet.shepherd/version/download/' +img.Id}"/> 
+            </aura:iteration>  
+        </lightning:carousel> 
+        <div aura:id="data-entry">
+            <lightning:tabset variant="default" selectedTabId="{!v.selTabId}">
+                <aura:iteration items="{!v.images}" var="img" indexvar="index"> 
+                    <lightning:tab aura:id="tab1" tabindex="1" id="{!img.index}">
+                        <lightning:carouselImage src="{!'/sfc/servlet.shepherd/version/download/' +img.Id}"/>
+                    </lightning:tab>
+                </aura:iteration>     
+            </lightning:tabset>
+        </div>
+        <div class="slds-clearfix">
+            <div class="slds-float_left">
+                <lightning:button iconName="utility:chevronleft" iconPosition="left" disabled="{!v.selTabId == 'tab1'}" onclick="{!c.back}"/>
+            </div>
+            <div class="slds-float_right">
+                <lightning:button iconName="utility:chevronright" iconPosition="right" disabled="{!v.selTabId == 'tab3'}"  onclick="{!c.next}"/>
+            </div>
+        </div>
+    </div>
+</aura:component>
